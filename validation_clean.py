@@ -647,7 +647,7 @@ class StandaloneValidationSuite:
         noise_det_probs_sorted = np.sort(noise_det_probs_array)[::-1]
         
         for i in range(min(len(noise_det_probs_sorted), 36000)):                  
-            obs_time_hours = (i + 1) / 3600.0
+            obs_time_hours = (i + 1) * 100e-3 / 3600.0 
             n_false_alarms = np.sum(noise_det_probs_sorted[:i+1] > detection_threshold)
             
             observation_times.append(obs_time_hours)
